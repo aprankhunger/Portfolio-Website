@@ -52,3 +52,32 @@ const navbar = document.querySelector('.navbar');
 menuToggle.addEventListener('click', () => {
   navbar.classList.toggle('show');
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.testimonial-slider .prev');
+    const nextButton = document.querySelector('.testimonial-slider .next');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentSlide = (currentSlide > 0) ? currentSlide - 1 : slides.length - 1;
+        showSlide(currentSlide);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentSlide = (currentSlide < slides.length - 1) ? currentSlide + 1 : 0;
+        showSlide(currentSlide);
+    });
+
+    // Initialize the first slide
+    showSlide(currentSlide);
+});

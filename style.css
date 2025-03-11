@@ -696,6 +696,7 @@ span{
 .slide.active {
     display: flex;
     opacity: 1;
+    animation: slideIn 0.8s forwards;
 }
 
 .testimonial-photo {
@@ -724,6 +725,52 @@ h3 {
 .span1 {
     font-size: 0.9rem;
     color: #ededed;
+}
+
+/* Add styles for the buttons */
+.testimonial-slider .prev, .testimonial-slider .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #00abf0;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 10;
+}
+
+.testimonial-slider .prev {
+    left: 10px;
+}
+
+.testimonial-slider .next {
+    right: 10px;
+}
+
+/* Add sliding animation */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
 }
   /*--------------------------------------------------------------
 # Contact
